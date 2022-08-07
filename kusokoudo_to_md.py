@@ -8,9 +8,9 @@ def data_to_dict(data):
     '''
     とりあえず、1セット分のデータをdictにする。
     data format:
-        タイムスタンプ, ペンネーム, 自己語り欄, 自由
+        タイムスタンプ, ペンネーム, 自己紹介, コード, 使用した言語, コードの説明, 自由
     '''
-    keys = ("n", "time", "name", "code", "intro", "free")
+    keys = ("n", "time", "name", "intro", "code", "lang", "description", "free")
     data[0] = int(data[0]) - 1
 
     return dict(zip(keys, data))
@@ -42,7 +42,7 @@ for row in rows:
     datas.append(data_to_dict(data))
 
 # 書き込み
-with open("kuso_episode.md", "w", encoding="utf-8", errors="ignore") as f:
+with open("kusokoudo.md", "w", encoding="utf-8", errors="ignore") as f:
     for data in datas:
         f.write("***\n\n")
         f.write("# No." + str(data["n"])+"\n")
@@ -50,9 +50,14 @@ with open("kuso_episode.md", "w", encoding="utf-8", errors="ignore") as f:
 
         f.write("## [自己語り欄]\n")
         f.write(data["intro"].replace("\n", "  \n")+"\n\n")
-                
-        f.write("## [エピソード]\n")
-        f.write(data["code"].replace("\n", "  \n") + "\n\n")
+        
+        f.write("### [使用言語:"+data["lang"]+"]\n")
+        f.write("```"+data["lang"]+"\n")
+        f.write(data["code"] + "\n")
+        f.write("```\n\n")
+        
+        f.write("## [コードの説明]\n")
+        f.write(data["description"].replace("\n", "  \n") + "\n\n")
         f.write("## [自由記入欄]\n")
         f.write(data["free"].replace("\n", "  \n") + "\n\n")
         f.write("***\n")
