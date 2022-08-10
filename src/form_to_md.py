@@ -67,6 +67,8 @@ class FormToMarkDown:
         return structured_data
 
     def __load_form_data(self, form_data_path: PathLike) -> None:
+        # issue: #1
+        # この方法では一部扱えない文字(空白文字のみで情報を表現した行)が存在するが, その場合は pastebin などのサービスを使ってもらうようにする。
         with open(form_data_path, "r", encoding="utf-8", errors="ignore") as f:
             html = f.read()
         soup = BeautifulSoup(html, 'html.parser')
