@@ -1,0 +1,46 @@
+[
+    {
+        "type": "ord",
+        "name": "index"
+    },
+    {
+        "type": "no-break-str",
+        "name": "name",
+        "index": 2
+    },
+    {
+        "type": "str",
+        "name": "intro",
+        "index": 3
+    },
+    {
+        "type": "str",
+        "name": "code",
+        "index": 4
+    },
+    {
+        "type": "str",
+        "name": "output",
+        "index": 5
+    },
+    {
+        "type": "google-drive-image",
+        "name": "output-img",
+        "index": 6
+    },
+    {
+        "type": "no-break-str",
+        "name": "lang",
+        "index": 7
+    },
+    {
+        "type": "str",
+        "name": "appeal",
+        "index": 8
+    },
+    {
+        "type": "str",
+        "name": "free",
+        "index": 9
+    }
+]

@@ -1,2 +1,7 @@
 .vscode
-Pipfile.lock
+.env
+*.html
+kuso_episode.md
+kusokoudo.md
+*hoge*
+*.csv
