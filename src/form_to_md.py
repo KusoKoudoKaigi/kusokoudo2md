@@ -5,6 +5,7 @@ Google フォームの回答一覧をスプレッドシート経由で .html で
 import os
 from pathlib import Path
 import json
+import random
 
 from bs4 import BeautifulSoup
 
@@ -99,7 +100,8 @@ class FormToMarkDown:
                 self.structured_datum.append(self.__list_to_structured_data(data_list))
 
     def __numbering(self) -> None:
-        # ランダムにするやつも入れたほうがいいかも
+        random.shuffle(self.structured_datum)
+
         max_n = len(self.structured_datum)
         for i in range(max_n):
             self.structured_datum[i]["index"] = i
