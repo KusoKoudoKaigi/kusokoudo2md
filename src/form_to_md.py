@@ -30,7 +30,7 @@ class FormToMarkDown:
         for var_json in variables_json:
             if var_json["type"] == "ord":
                 self.ord_setting = var_json
-            elif var_json["type"] in ("str", "no-break-str", "google-drive-image"):
+            elif var_json["type"] in ("str", "raw-str", "no-break-str", "google-drive-image"):
                 # ここもそのうちリスト別に分けたいね
                 self.index_to_var[var_json["index"]] = var_json
 
@@ -56,6 +56,8 @@ class FormToMarkDown:
             var_type = var["type"]
             var_name = var["name"]
             if var_type == "str":
+                structured_data[var_name] = data.replace("\n", "<br>")
+            elif var_type == "raw-str":
                 structured_data[var_name] = data
 
             elif var_type == "no-break-str":

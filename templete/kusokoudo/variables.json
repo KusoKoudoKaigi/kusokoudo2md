@@ -14,12 +14,12 @@
         "index": 3
     },
     {
-        "type": "str",
+        "type": "raw-str",
         "name": "code",
         "index": 4
     },
     {
-        "type": "str",
+        "type": "raw-str",
         "name": "output",
         "index": 5
     },
