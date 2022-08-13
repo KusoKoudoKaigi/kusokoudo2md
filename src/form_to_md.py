@@ -74,7 +74,7 @@ class FormToMarkDown:
         soup = BeautifulSoup(html, 'html.parser')
         for i in soup.select("br"):
             i.replace_with("\n")
-        print(soup)
+
         table = soup.findAll("table")[0]
         rows  = table.findAll("tr")
 
